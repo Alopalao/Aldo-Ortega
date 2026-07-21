@@ -271,10 +271,13 @@ textarea {
 }
 
 .job-logo {
-  width: 64px;
-  height: 64px;
+  width: 230px;
+  height: 100px;
   border-radius: 10px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  padding: 0.35rem;
 }
 
 .role-list {
@@ -283,8 +286,27 @@ textarea {
   gap: 0.9rem;
 }
 
+.role-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
 .role-block h4 {
-  margin-bottom: 0.25rem;
+  margin: 0;
+}
+
+.role-period {
+  margin: 0 0 0 auto;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: right;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
 }
 
 .role-block ul {
@@ -523,6 +545,17 @@ textarea {
 
   .job-logo {
     justify-self: start;
+    width: 76px;
+    height: 76px;
+  }
+
+  .role-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .role-period {
+    margin-left: auto;
   }
 
   .card-content {
@@ -607,5 +640,15 @@ textarea {
 
   .role-list {
     padding: 0.75rem;
+  }
+
+  .job-logo {
+    width: 68px;
+    height: 68px;
+  }
+
+  .role-period {
+    font-size: 0.82rem;
+    padding: 0.15rem 0.45rem;
   }
 }

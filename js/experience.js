@@ -19,10 +19,10 @@ export function createExperienceSection(jobs) {
     const companyName = document.createElement("h3");
     companyName.textContent = job.company;
 
-    const companyType = document.createElement("p");
-    companyType.textContent = job.companyType;
+    const location = document.createElement("p");
+    location.textContent = job.location;
 
-    companyInfo.append(companyName, companyType);
+    companyInfo.append(companyName, location);
 
     const logo = document.createElement("img");
     logo.className = "job-logo";
@@ -38,10 +38,14 @@ export function createExperienceSection(jobs) {
       const roleBlock = document.createElement("section");
       roleBlock.className = "role-block";
 
+      const roleHeader = document.createElement("div");
+      roleHeader.className = "role-header";
+
       const roleTitle = document.createElement("h4");
       roleTitle.textContent = role.title;
 
       const rolePeriod = document.createElement("p");
+      rolePeriod.className = "role-period";
       rolePeriod.textContent = role.period;
 
       const bullets = document.createElement("ul");
@@ -51,7 +55,8 @@ export function createExperienceSection(jobs) {
         bullets.appendChild(li);
       });
 
-      roleBlock.append(roleTitle, rolePeriod, bullets);
+      roleHeader.append(roleTitle, rolePeriod);
+      roleBlock.append(roleHeader, bullets);
       roleList.appendChild(roleBlock);
     });
 

@@ -40,49 +40,42 @@ const headerSocialLinks = [
 
 const experience = [
   {
-    company: "Northwind Labs",
-    companyType: "Software & Data Consulting",
-    logo: "./imgs/a_turtle.jpeg",
+    company: "Center For Internet Augmented Research & Assessment (CIARA)",
+    location: "Miami, Florida",
+    logo: "./imgs/CIARA_logo.jpg",
     roles: [
       {
-        title: "Frontend Developer",
-        period: "2024 - Present",
+        title: "Research Application Developer Intern",
+        period: "Jan. 2023 to Present",
         bullets: [
-          "Built a dashboard for daily operations and reduced manual reporting steps.",
-          "Created reusable UI components to speed up feature delivery across teams.",
-          "Partnered with backend engineers to integrate new API endpoints.",
+          "Led the development of open-source network management tools for Kytos-ng in Python and Linux so researchers and engineers could manage network traffic reliably.",
+          "Designed reusable web UI components in Vue.js so future student developers could use them and save time in styling and interface design decisions.",
+          "Redesigned database structure in MongoDB from sparse arrays to reduce document storage size by over 90%, so data retrieval and update was made faster and cheaper.",
+          "Upgraded system concurrency with Python asyncio and multi-threading to handle 10x more processes (1,000 req/sec), maintaining API stability during peak traffic loads.",
+          "Mentored 5+ student developers annually through structured Git and Python code reviews to accelerate onboarding and uphold software quality standards."
         ],
       },
       {
-        title: "QA Automation Analyst",
-        period: "2023 - 2024",
+        title: "Application Developer Intern",
+        period: "Sept. 2022 to Dec. 2022",
         bullets: [
-          "Automated smoke tests for release candidates before deployment.",
-          "Logged critical bugs and worked with developers on fast verification cycles.",
+          "Constructed and maintained back-end for a repository leveraging PyMongo for efficient database management.",
+          "Enforced robust data validation with Pydantic, automatically enforcing data format rules and prevents future developers from runtime errors.",
         ],
       },
     ],
   },
   {
-    company: "Blue Harbor Systems",
-    companyType: "Product Engineering",
-    logo: "./imgs/a_turtle.jpeg",
+    company: "Amazon",
+    location: "Austin, Texas",
+    logo: "./imgs/amazon_logo.jpeg",
     roles: [
       {
-        title: "Backend Developer",
-        period: "2022 - 2023",
+        title: "Intern Software Developer Engineer",
+        period: "May 2022 to Aug. 2022",
         bullets: [
-          "Implemented REST APIs for account management and analytics flows.",
-          "Improved query performance for high-traffic endpoints.",
-          "Documented service contracts for internal consumers.",
-        ],
-      },
-      {
-        title: "DevOps Engineer",
-        period: "2021 - 2022",
-        bullets: [
-          "Maintained CI pipelines and deployment scripts for multiple environments.",
-          "Added health checks and logging to improve incident response time.",
+          "Built modern, intuitive React UI components for customer support tools, simplifying refund and cancellation workflows for agents.",
+          "Replaced large API calls with GraphQL queries to fetch order data across internal services without loading unnecessary customer information.",
         ],
       },
     ],
