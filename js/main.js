@@ -12,7 +12,7 @@ const profile = {
   photo: "./imgs/a_turtle.jpeg",
   links: [
     { label: "GitHub", href: "https://github.com/Alopalao", title: "GitHub profile" },
-    { label: "Resume", href: "#", title: "Resume document" },
+    { label: "Resume", href: "./resume/", title: "Resume document" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/aldortega", title: "LinkedIn profile" },
   ],
 };
@@ -29,6 +29,12 @@ const headerSocialLinks = [
     icon: "./imgs/github_logo.png",
     alt: "GitHub",
     title: "Open GitHub profile",
+  },
+  {
+    href: "./resume/",
+    icon: "./imgs/cv_logo.jpg",
+    alt: "Resume",
+    title: "Open Resume document",
   },
 ];
 
