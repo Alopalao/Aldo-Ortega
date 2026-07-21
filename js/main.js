@@ -9,7 +9,7 @@ const profile = {
   headline: "Software Developer | Full Stack | ",
   introText:
     "Hello, I am Aldo. This intro section is a placeholder so you can clearly see the current layout. I enjoy building useful software, learning new tools, and turning ideas into products.",
-  photo: "../imgs/a_turtle.jpeg",
+  photo: "./imgs/a_turtle.jpeg",
   links: [
     { label: "GitHub", href: "https://github.com/Alopalao", title: "GitHub profile" },
     { label: "Resume", href: "#", title: "Resume document" },
@@ -20,13 +20,13 @@ const profile = {
 const headerSocialLinks = [
   {
     href: "https://www.linkedin.com/in/aldortega",
-    icon: "../imgs/linkedin_logo.png",
+    icon: "./imgs/linkedin_logo.png",
     alt: "LinkedIn",
     title: "Open LinkedIn profile",
   },
   {
     href: "https://github.com/Alopalao",
-    icon: "../imgs/github_logo.png",
+    icon: "./imgs/github_logo.png",
     alt: "GitHub",
     title: "Open GitHub profile",
   },
@@ -36,7 +36,7 @@ const experience = [
   {
     company: "Northwind Labs",
     companyType: "Software & Data Consulting",
-    logo: "../imgs/a_turtle.jpeg",
+    logo: "./imgs/a_turtle.jpeg",
     roles: [
       {
         title: "Frontend Developer",
@@ -60,7 +60,7 @@ const experience = [
   {
     company: "Blue Harbor Systems",
     companyType: "Product Engineering",
-    logo: "../imgs/a_turtle.jpeg",
+    logo: "./imgs/a_turtle.jpeg",
     roles: [
       {
         title: "Backend Developer",
@@ -89,7 +89,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 1. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
+    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -97,7 +97,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 2. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
+    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -105,7 +105,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 3. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
+    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -113,7 +113,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 4. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
+    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -121,7 +121,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 5. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
+    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -129,7 +129,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 6. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
+    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
     href: "#",
   },
 ];
