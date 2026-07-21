@@ -18,6 +18,7 @@ export function createGallerySection(config) {
   grid.className = "gallery-grid";
 
   const overlay = createModalOverlay();
+  document.body.appendChild(overlay);
 
   items.forEach((item) => {
     const card = document.createElement("article");
@@ -44,7 +45,7 @@ export function createGallerySection(config) {
     grid.appendChild(card);
   });
 
-  section.append(grid, overlay);
+  section.appendChild(grid);
   return section;
 }
 
@@ -97,8 +98,7 @@ function createModalOverlay() {
 
   overlay.addEventListener("click", (event) => {
     if (event.target === overlay) {
-      overlay.classList.remove("show");
-      overlay.innerHTML = "";
+      closeModal(overlay);
     }
   });
 
@@ -109,6 +109,7 @@ function createModalOverlay() {
 function showModal(overlay, item, linkLabel) {
   overlay.innerHTML = "";
   overlay.classList.add("show");
+  document.body.classList.add("modal-open");
 
   const modal = document.createElement("div");
   modal.className = "modal";
@@ -118,8 +119,7 @@ function showModal(overlay, item, linkLabel) {
   close.type = "button";
   close.textContent = "Close";
   close.addEventListener("click", () => {
-    overlay.classList.remove("show");
-    overlay.innerHTML = "";
+    closeModal(overlay);
   });
 
   const body = document.createElement("div");
@@ -142,6 +142,13 @@ function showModal(overlay, item, linkLabel) {
   body.append(title, carousel.wrap, details, link);
   modal.append(close, body);
   overlay.appendChild(modal);
+}
+
+/** Closes the modal overlay and restores background page scrolling. */
+function closeModal(overlay) {
+  overlay.classList.remove("show");
+  overlay.innerHTML = "";
+  document.body.classList.remove("modal-open");
 }
 
 /** Creates shared section heading structure. */
