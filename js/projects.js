@@ -4,7 +4,7 @@ import { createGallerySection } from "./gallery.js";
 export function createProjectsSection(projects) {
   return createGallerySection({
     title: "Projects",
-    subtitle: "Each card opens for larger images and extra details.",
+    subtitle: "",
     items: projects,
     linkLabel: "Visit project",
   });

@@ -1,8 +1,7 @@
 /** Creates the work experience section with one card per organization. */
 export function createExperienceSection(jobs) {
   const section = createBaseSection(
-    "Work Experience",
-    "Each organization includes one or more role blocks."
+    "Work Experience", "",
   );
 
   const grid = document.createElement("div");

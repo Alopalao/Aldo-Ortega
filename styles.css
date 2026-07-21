@@ -27,6 +27,20 @@ body {
   line-height: 1.6;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+li,
+a,
+button,
+input,
+textarea {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -51,6 +65,49 @@ body {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-toggle-icon {
+  width: 16px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  display: inline-block;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 2px;
+  background: var(--text);
+}
+
+.nav-toggle-icon::before {
+  top: -5px;
+}
+
+.nav-toggle-icon::after {
+  top: 5px;
+}
+
+.nav-toggle-label {
+  font-size: 0.9rem;
 }
 
 .nav-social {
@@ -153,6 +210,12 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--surface-soft);
+}
+
+.intro-wrap h3 {
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  line-height: 1.3;
+  max-width: 100%;
 }
 
 .intro-links {
@@ -280,6 +343,19 @@ body {
   padding: 0.8rem 1rem 1rem;
 }
 
+.card-content h3,
+.card-content p,
+.modal-body h3,
+.modal-body p,
+.role-block h4,
+.role-block p,
+.role-block li,
+.section-title,
+.section-subtitle,
+.intro-wrap p {
+  hyphens: auto;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -384,11 +460,79 @@ body {
 
 @media (max-width: 700px) {
   .top-nav {
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .nav-links {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links,
+  .nav-social {
+    display: none;
+    width: 100%;
+  }
+
+  .top-nav.menu-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding-top: 0.4rem;
+  }
+
+  .top-nav.menu-open .nav-social {
+    display: flex;
     justify-content: center;
+    padding-bottom: 0.3rem;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+  }
+
+  .section {
+    padding: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+    line-height: 1.25;
+  }
+
+  .section-subtitle {
+    line-height: 1.4;
+  }
+
+  .job-header {
+    grid-template-columns: 1fr;
+  }
+
+  .job-logo {
+    justify-self: start;
+  }
+
+  .card-content {
+    padding: 0.8rem;
+  }
+
+  .portrait {
+    width: 150px;
+    height: 150px;
+  }
+
+  .intro-wrap h3 {
+    font-size: 1.15rem;
+    padding: 0 0.2rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    min-width: 0;
   }
 
   .gallery-grid {
@@ -401,5 +545,49 @@ body {
 
   .contact-photo {
     max-height: 280px;
+  }
+}
+
+@media (max-width: 380px) {
+  .top-nav {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .section {
+    padding: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+  }
+
+  .portrait {
+    width: 120px;
+    height: 120px;
+    border-width: 3px;
+  }
+
+  .intro-wrap h3 {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .nav-link {
+    font-size: 0.86rem;
+    letter-spacing: 0.01em;
+  }
+
+  .intro-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .icon-link {
+    padding: 0.3rem 0.55rem;
+  }
+
+  .role-list {
+    padding: 0.75rem;
   }
 }

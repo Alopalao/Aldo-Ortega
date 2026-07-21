@@ -9,7 +9,7 @@ export function createGallerySection(config) {
           title: "Coming Soon",
           shortDescription: "This section will be filled soon.",
           longDescription: "More details will be added once content is ready.",
-          images: ["./a_turtle.jpeg", "./a_turtle.jpeg", "./a_turtle.jpeg"],
+          images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
           href: "#",
         },
       ];

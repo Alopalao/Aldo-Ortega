@@ -1,32 +1,32 @@
-import { createIntroSection } from "./sections/intro.js";
-import { createExperienceSection } from "./sections/experience.js";
-import { createProjectsSection } from "./sections/projects.js";
-import { createConferencesSection } from "./sections/conferences.js";
-import { createContactSection } from "./sections/contact.js";
+import { createIntroSection } from "./intro.js";
+import { createExperienceSection } from "./experience.js";
+import { createProjectsSection } from "./projects.js";
+import { createConferencesSection } from "./conferences.js";
+import { createContactSection } from "./contact.js";
 
 const profile = {
   name: "Aldo Ortega",
   headline: "Software Developer | Full Stack | ",
   introText:
     "Hello, I am Aldo. This intro section is a placeholder so you can clearly see the current layout. I enjoy building useful software, learning new tools, and turning ideas into products.",
-  photo: "./a_turtle.jpeg",
+  photo: "../imgs/a_turtle.jpeg",
   links: [
-    { label: "GitHub", href: "#", title: "GitHub profile" },
+    { label: "GitHub", href: "https://github.com/Alopalao", title: "GitHub profile" },
     { label: "Resume", href: "#", title: "Resume document" },
-    { label: "LinkedIn", href: "#", title: "LinkedIn profile" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/aldortega", title: "LinkedIn profile" },
   ],
 };
 
 const headerSocialLinks = [
   {
-    href: "#",
-    icon: "./linkedin_logo.png",
+    href: "https://www.linkedin.com/in/aldortega",
+    icon: "../imgs/linkedin_logo.png",
     alt: "LinkedIn",
     title: "Open LinkedIn profile",
   },
   {
-    href: "#",
-    icon: "./github_logo.png",
+    href: "https://github.com/Alopalao",
+    icon: "../imgs/github_logo.png",
     alt: "GitHub",
     title: "Open GitHub profile",
   },
@@ -36,7 +36,7 @@ const experience = [
   {
     company: "Northwind Labs",
     companyType: "Software & Data Consulting",
-    logo: "./a_turtle.jpeg",
+    logo: "../imgs/a_turtle.jpeg",
     roles: [
       {
         title: "Frontend Developer",
@@ -60,7 +60,7 @@ const experience = [
   {
     company: "Blue Harbor Systems",
     companyType: "Product Engineering",
-    logo: "./a_turtle.jpeg",
+    logo: "../imgs/a_turtle.jpeg",
     roles: [
       {
         title: "Backend Developer",
@@ -89,7 +89,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 1. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./a_turtle.jpeg", "./a_turtle.jpeg"],
+    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -97,7 +97,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 2. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./a_turtle.jpeg", "./a_turtle.jpeg"],
+    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -105,7 +105,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 3. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./a_turtle.jpeg", "./a_turtle.jpeg"],
+    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -113,7 +113,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 4. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./a_turtle.jpeg", "./a_turtle.jpeg"],
+    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -121,7 +121,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 5. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./a_turtle.jpeg", "./a_turtle.jpeg"],
+    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
     href: "#",
   },
   {
@@ -129,7 +129,7 @@ const projects = [
     shortDescription: "Description of generic project here.",
     longDescription:
       "Expanded view for Random Project 6. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./a_turtle.jpeg", "./a_turtle.jpeg"],
+    images: ["../imgs/a_turtle.jpeg", "../imgs/a_turtle.jpeg"],
     href: "#",
   },
 ];
@@ -153,6 +153,21 @@ attachRevealAnimation();
 
 /** Builds sticky top navigation links for each section. */
 function buildNavigation(sectionList) {
+  const menuButton = document.createElement("button");
+  menuButton.className = "nav-toggle";
+  menuButton.type = "button";
+  menuButton.setAttribute("aria-label", "Toggle navigation menu");
+  menuButton.setAttribute("aria-expanded", "false");
+
+  const menuIcon = document.createElement("span");
+  menuIcon.className = "nav-toggle-icon";
+
+  const menuLabel = document.createElement("span");
+  menuLabel.className = "nav-toggle-label";
+  menuLabel.textContent = "Menu";
+
+  menuButton.append(menuIcon, menuLabel);
+
   const linkGroup = document.createElement("div");
   linkGroup.className = "nav-links";
 
@@ -184,7 +199,26 @@ function buildNavigation(sectionList) {
     socialGroup.appendChild(anchor);
   });
 
-  nav.append(linkGroup, socialGroup);
+  menuButton.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("menu-open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  linkGroup.querySelectorAll("a").forEach((anchor) => {
+    anchor.addEventListener("click", () => {
+      nav.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 700) {
+      nav.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  nav.append(menuButton, linkGroup, socialGroup);
 }
 
 /** Appends section nodes to the page and marks them for reveal animation. */
