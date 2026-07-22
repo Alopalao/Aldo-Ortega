@@ -134,37 +134,44 @@ const projects = [
   {
     title: "ContractLens Project",
     shortDescription: "A project to analyze user contracts from services like Netflix, Amazon, Youtube. This project was planned and deployed at a hackathon.",
-    longDescription:
-      "Expanded view for ContractLens Project. Add architecture notes, stack decisions, and outcomes here.",
+    longDescription: `
+      ## Overview
+      Contracts are hard to read, full of legal jargon, and easy to misunderstand. We built ContractLens to make key terms and risks clear for non-lawyers in minutes.
+
+      ### What it does
+      - ContractLens analyzes uploaded contracts, highlights important clauses, flags potential risks, and generates an easy-to-understand language summary.
+
+      ### Stack
+      - **Gemini**: Analyzes the uploaded contracts and provides the responses for the chat feature.
+      - **MongoDB**: Database to store client login credentials and documents.
+      - **Python**: Back-end which handles the communication with Gemini API.
+      - **Vue.js**: Front-end which handles the user interface and interactions.
+    `,
     images: [
       "./imgs/contractlense_project.png",
     ],
     videoURLs: ["https://youtu.be/VFeHTGgtuq0"],
-    href: "#",
+    href: "https://github.com/Alopalao/ContractLens.git",
   },
   {
-    title: "Random Project 4",
-    shortDescription: "Description of generic project here.",
-    longDescription:
-      "Expanded view for Random Project 4. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
-    href: "#",
-  },
-  {
-    title: "Random Project 5",
-    shortDescription: "Description of generic project here.",
-    longDescription:
-      "Expanded view for Random Project 5. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
-    href: "#",
-  },
-  {
-    title: "Random Project 6",
-    shortDescription: "Description of generic project here.",
-    longDescription:
-      "Expanded view for Random Project 6. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
-    href: "#",
+    title: "MaRe Signal",
+    shortDescription: "Hackathon project whose objective was to help a business to find potential partners in the beauty industry.",
+    longDescription: `
+    ## Overview
+    B2B prospecting for luxury brands is often manual and risks damaging brand equity with generic outreach. We built MaRe Signal to automate the search for potential high-fidelity partner acquisition for the MaRe Head Spa System.
+
+    ### What it does
+    MaRe Signal uses agentic scraping to identify $1M+ revenue salons, scores leads based on luxury signals.
+
+    ### Stack
+    - **Javascript | TypeScript**: Main programming languages used for the project.
+    - **Firecrawl**: Agentic web scraping tool for automated lead discovery, enrichment, and scoring.
+    - **Vue.js**: Frontend framework used to replicate the premium, minimalist aesthetic of the MaRe brand.
+
+      Check out the [project](https://marehackathon1.vercel.app/)
+    `,
+    images: ["./imgs/mare_project/mare_project.jpg", "./imgs/mare_project/group_project.jpeg"],
+    href: "https://github.com/PaulPio/MAREHackaton",
   },
 ];
 
