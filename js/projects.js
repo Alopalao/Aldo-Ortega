@@ -6,6 +6,6 @@ export function createProjectsSection(projects) {
     title: "Projects",
     subtitle: "",
     items: projects,
-    linkLabel: "Visit project",
+    linkLabel: "Source code",
   });
 }

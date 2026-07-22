@@ -441,6 +441,56 @@ textarea {
   object-position: center;
 }
 
+.modal-rich-text {
+  display: grid;
+  gap: 0.6rem;
+  color: var(--text);
+}
+
+.modal-rich-text h1,
+.modal-rich-text h2,
+.modal-rich-text h3 {
+  margin: 0.2rem 0;
+  line-height: 1.2;
+}
+
+.modal-rich-text h1 {
+  font-size: 1.35rem;
+}
+
+.modal-rich-text h2 {
+  font-size: 1.15rem;
+}
+
+.modal-rich-text h3 {
+  font-size: 1rem;
+}
+
+.modal-rich-text p {
+  margin: 0;
+}
+
+.modal-rich-text ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.modal-rich-text a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.modal-rich-text code {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.05rem 0.35rem;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.9em;
+}
+
 .contact-wrap {
   display: grid;
   grid-template-columns: 220px 1fr;

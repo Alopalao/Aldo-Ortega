@@ -130,18 +130,117 @@ function showModal(overlay, item, linkLabel) {
 
   const carousel = createCarousel(item.images, getModalCarouselHeight());
 
-  const details = document.createElement("p");
-  details.textContent = item.longDescription;
+  const details = document.createElement("div");
+  details.className = "modal-rich-text";
+  details.innerHTML = renderMarkdown(item.longDescription || "");
 
-  const link = document.createElement("a");
-  link.href = item.href;
-  link.target = "_blank";
-  link.rel = "noreferrer";
-  link.textContent = linkLabel;
+  body.append(title, carousel.wrap, details);
 
-  body.append(title, carousel.wrap, details, link);
+  // Only show an outbound link if this item actually has a usable URL.
+  if (item.href && item.href !== "#") {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.textContent = linkLabel;
+    body.appendChild(link);
+  }
+
   modal.append(close, body);
   overlay.appendChild(modal);
+}
+
+/** Renders a small subset of Markdown into safe HTML for modal details. */
+function renderMarkdown(markdown) {
+  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+  const htmlParts = [];
+  let paragraph = [];
+  let listItems = [];
+
+  const flushParagraph = () => {
+    if (!paragraph.length) {
+      return;
+    }
+
+    htmlParts.push(`<p>${renderInline(paragraph.join(" "))}</p>`);
+    paragraph = [];
+  };
+
+  const flushList = () => {
+    if (!listItems.length) {
+      return;
+    }
+
+    const items = listItems.map((item) => `<li>${renderInline(item)}</li>`).join("");
+    htmlParts.push(`<ul>${items}</ul>`);
+    listItems = [];
+  };
+
+  lines.forEach((rawLine) => {
+    const line = rawLine.trim();
+
+    if (!line) {
+      flushParagraph();
+      flushList();
+      return;
+    }
+
+    const headingMatch = line.match(/^(#{1,3})\s+(.+)$/);
+    if (headingMatch) {
+      flushParagraph();
+      flushList();
+      const level = headingMatch[1].length;
+      htmlParts.push(`<h${level}>${renderInline(headingMatch[2])}</h${level}>`);
+      return;
+    }
+
+    const listMatch = line.match(/^[-*]\s+(.+)$/);
+    if (listMatch) {
+      flushParagraph();
+      listItems.push(listMatch[1]);
+      return;
+    }
+
+    paragraph.push(line);
+  });
+
+  flushParagraph();
+  flushList();
+
+  return htmlParts.join("");
+}
+
+/** Renders inline markdown syntax while escaping unsupported HTML. */
+function renderInline(text) {
+  let safe = escapeHtml(text);
+
+  safe = safe.replace(/`([^`]+)`/g, "<code>$1</code>");
+  safe = safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  safe = safe.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  safe = safe.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, label, href) => {
+    if (!isSafeHref(href)) {
+      return label;
+    }
+
+    return `<a href="${href}" target="_blank" rel="noreferrer">${label}</a>`;
+  });
+
+  return safe;
+}
+
+/** Escapes HTML-significant characters before markdown formatting transforms. */
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/** Allows only common safe link patterns in markdown links. */
+function isSafeHref(href) {
+  return /^(https?:\/\/|mailto:|\.\/|\/|#)/i.test(href);
 }
 
 /** Returns a responsive image height for the expanded modal carousel. */

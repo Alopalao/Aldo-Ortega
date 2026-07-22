@@ -5,7 +5,7 @@ export function createConferencesSection(conferences) {
   return createGallerySection({
     title: "Conferences & Extra",
     subtitle:
-      "Open-source contributions, conferences, and community highlights can live here.",
+      "Open-source contributions, conferences, and community highlights live here.",
     items: conferences,
     linkLabel: "More details",
   });

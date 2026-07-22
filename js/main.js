@@ -90,17 +90,29 @@ const projects = [
   {
     title: "My own website",
     shortDescription: "A simple personal website to show my projects and experience as Software Developer engineer.",
-    longDescription:
-      "This is the website. The one you are currently on.",
+    longDescription: `
+      ## Overview\n
+      This is my personal portfolio website, built to showcase projects and experience.\n
+      \n
+      ### Highlights\n
+      - Responsive layout for desktop and mobile\n
+      - Expandable project modal with image carousel\n
+      - Clean section-based architecture in plain JavaScript\n
+      \n
+      ### Stack\n
+      - HTML\n
+      - CSS\n
+      - JavaScript\n
+    `,
     images: ["./imgs/website_project.png"],
     href: "https://github.com/Alopalao/Aldo-Ortega.git",
   },
   {
-    title: "Random Project 2",
-    shortDescription: "Description of generic project here.",
+    title: "Moving Pieces Puzzle Game",
+    shortDescription: "A puzzle game where players move pieces to solve challenges.",
     longDescription:
-      "Expanded view for Random Project 2. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
+      "Expanded view for Moving Pieces Puzzle Game. Add architecture notes, stack decisions, and outcomes here.",
+    images: ["./imgs/puzzle_project/burguer_puzzle.gif", "./imgs/puzzle_project/turtle_puzzle.png", "./imgs/puzzle_project/turtle2_puzzle.png"],
     href: "#",
   },
   {
@@ -137,7 +149,22 @@ const projects = [
   },
 ];
 
-const conferences = [];
+const conferences = [
+  {
+    title: "PyCon 2026",
+    shortDescription: "Wonderful conference of the Python community.",
+    longDescription: `
+      ## PyCon 2026\n
+      A great event focused on community, learning, and sharing ideas.\n
+      \n
+      ### What I enjoyed\n
+      - Talks from experienced Python maintainers\n
+      - Practical sessions around tooling and best practices\n
+      - Networking with developers from different backgrounds
+    `,
+    images: ["./imgs/pycon/speakers2_pycon.jpg", "./imgs/pycon/speakers_pycon.jpg", "./imgs/pycon/map_pycon.jpg", "./imgs/pycon/setup_pycon.jpg", ]
+  }
+];
 
 const sections = [
   { id: "introduction", label: "Introduction", node: createIntroSection(profile) },
