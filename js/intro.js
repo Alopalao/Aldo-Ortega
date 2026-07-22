@@ -1,6 +1,6 @@
 /** Creates the introduction section with profile image, text, and links. */
 export function createIntroSection(profile) {
-  const section = createBaseSection("Welcome", "A snippet of who I am.");
+  const section = createBaseSection("Welcome, have a look", "Yes the photo does not show all my face.");
 
   const introWrap = document.createElement("div");
   introWrap.className = "intro-wrap";
@@ -10,8 +10,11 @@ export function createIntroSection(profile) {
   photo.src = profile.photo;
   photo.alt = `${profile.name} portrait`;
 
+  const title = document.createElement("h3");
+  title.textContent = `${profile.name}`;
+
   const heading = document.createElement("h3");
-  heading.textContent = `${profile.name} | ${profile.headline}`;
+  heading.textContent = `${profile.headline}`;
 
   const text = document.createElement("p");
   text.textContent = profile.introText;
@@ -37,7 +40,7 @@ export function createIntroSection(profile) {
     }
   });
 
-  introWrap.append(photo, heading, text, links);
+  introWrap.append(photo, title, heading, text, links);
   section.appendChild(introWrap);
 
   return section;

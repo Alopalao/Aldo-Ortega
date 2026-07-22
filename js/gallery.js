@@ -128,7 +128,7 @@ function showModal(overlay, item, linkLabel) {
   const title = document.createElement("h3");
   title.textContent = item.title;
 
-  const carousel = createCarousel(item.images, 280);
+  const carousel = createCarousel(item.images, getModalCarouselHeight());
 
   const details = document.createElement("p");
   details.textContent = item.longDescription;
@@ -142,6 +142,13 @@ function showModal(overlay, item, linkLabel) {
   body.append(title, carousel.wrap, details, link);
   modal.append(close, body);
   overlay.appendChild(modal);
+}
+
+/** Returns a responsive image height for the expanded modal carousel. */
+function getModalCarouselHeight() {
+  const viewportHeight = window.innerHeight;
+  const scaledHeight = Math.round(viewportHeight * 0.72);
+  return Math.max(320, Math.min(scaledHeight, 900));
 }
 
 /** Closes the modal overlay and restores background page scrolling. */

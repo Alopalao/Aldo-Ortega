@@ -209,7 +209,7 @@ textarea {
 }
 
 .portrait {
-  width: clamp(120px, 24vw, 175px);
+  width: clamp(120px, 60vw, 400px);
   height: auto;
   display: block;
   border-radius: 16px;
@@ -343,7 +343,7 @@ textarea {
 .carousel img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .carousel-btn {
@@ -402,11 +402,12 @@ textarea {
 
 .modal {
   background: var(--surface);
-  width: min(780px, 100%);
-  border-radius: 16px;
+  width: min(1400px, 100vw);
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  max-height: calc(100vh - 2rem);
+  border: none;
+  max-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -422,14 +423,22 @@ textarea {
 
 .modal-body {
   padding: 0 1rem 1rem;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .modal .carousel {
-  height: 280px;
+  height: min(78vh, 900px);
   border-radius: 10px;
   margin-bottom: 0.8rem;
+  background: #f6f4ee;
+}
+
+.modal .carousel img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .contact-wrap {
@@ -614,11 +623,16 @@ textarea {
   }
 
   .overlay {
-    padding: 0.65rem;
+    padding: 0;
   }
 
   .modal {
-    max-height: calc(100vh - 1.3rem);
+    max-height: 100vh;
+    height: auto;
+  }
+
+  .modal .carousel {
+    height: 62vh;
   }
 
   .contact-wrap {

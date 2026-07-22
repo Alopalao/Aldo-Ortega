@@ -6,9 +6,9 @@ import { createContactSection } from "./contact.js";
 
 const profile = {
   name: "Aldo Ortega",
-  headline: "Software Developer | Full Stack | ",
+  headline: "Computer Science Student | Software Developer | Full Stack",
   introText:
-    "Hello, I am Aldo. This intro section is a placeholder so you can clearly see the current layout. I enjoy building useful software, learning new tools, and turning ideas into products.",
+    "Hello, I am Aldo. This website serves two purposes. First, to have a reason to finish my projects and show them off. Second, to avoid LinkedIn 😅. ",
   photo: "./imgs/me_lost.jpg",
   links: [
     { label: "GitHub", href: "https://github.com/Alopalao", title: "GitHub profile" },
@@ -88,12 +88,12 @@ const experience = [
 
 const projects = [
   {
-    title: "Random Project 1",
-    shortDescription: "Description of generic project here.",
+    title: "My own website",
+    shortDescription: "A simple personal website to show my projects and experience as Software Developer engineer.",
     longDescription:
-      "Expanded view for Random Project 1. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
-    href: "#",
+      "This is the website. The one you are currently on.",
+    images: ["./imgs/website_project.png"],
+    href: "https://github.com/Alopalao/Aldo-Ortega.git",
   },
   {
     title: "Random Project 2",
