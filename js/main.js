@@ -9,12 +9,16 @@ const profile = {
   headline: "Software Developer | Full Stack | ",
   introText:
     "Hello, I am Aldo. This intro section is a placeholder so you can clearly see the current layout. I enjoy building useful software, learning new tools, and turning ideas into products.",
-  photo: "./imgs/a_turtle.jpeg",
+  photo: "./imgs/me_lost.jpg",
   links: [
     { label: "GitHub", href: "https://github.com/Alopalao", title: "GitHub profile" },
     { label: "Resume", href: "./resume/", title: "Resume document" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/aldortega", title: "LinkedIn profile" },
   ],
+};
+const contact = {
+  name: "Aldo Ortega",
+  photo: "./imgs/desk.jpg",
 };
 
 const headerSocialLinks = [
@@ -140,7 +144,7 @@ const sections = [
   { id: "experience", label: "Experience", node: createExperienceSection(experience) },
   { id: "projects", label: "Projects", node: createProjectsSection(projects) },
   { id: "conferences", label: "Conferences", node: createConferencesSection(conferences) },
-  { id: "contact", label: "Contact", node: createContactSection(profile) },
+  { id: "contact", label: "Contact", node: createContactSection(contact) },
 ];
 
 const app = document.getElementById("app");

@@ -2,7 +2,7 @@
 export function createContactSection(profile) {
   const section = createBaseSection(
     "Contact",
-    "Use the form to share details so I can reach back to you."
+    "Feel free to contact me on LinkedIn or send me an email at aldortega65@gmail.com."
   );
 
   const wrap = document.createElement("div");
@@ -13,38 +13,29 @@ export function createContactSection(profile) {
   photo.src = profile.photo;
   photo.alt = `${profile.name} contact photo`;
 
-  const form = document.createElement("form");
-  form.className = "contact-form";
+  const message = document.createElement("div");
+  message.className = "contact-message";
 
-  const inputName = document.createElement("input");
-  inputName.type = "text";
-  inputName.name = "name";
-  inputName.placeholder = "Your name";
-  inputName.required = true;
+  const note = document.createElement("p");
+  note.textContent = "Reach me through the links below:";
 
-  const inputEmail = document.createElement("input");
-  inputEmail.type = "email";
-  inputEmail.name = "email";
-  inputEmail.placeholder = "Your email";
-  inputEmail.required = true;
+  const links = document.createElement("div");
+  links.className = "contact-links";
 
-  const inputCompany = document.createElement("input");
-  inputCompany.type = "text";
-  inputCompany.name = "company";
-  inputCompany.placeholder = "Company / Organization";
+  const linkedInLink = document.createElement("a");
+  linkedInLink.href = "https://www.linkedin.com/in/aldortega";
+  linkedInLink.target = "_blank";
+  linkedInLink.rel = "noreferrer";
+  linkedInLink.textContent = "LinkedIn";
 
-  const message = document.createElement("textarea");
-  message.name = "message";
-  message.rows = 5;
-  message.placeholder = "Message";
-  message.required = true;
+  const emailLink = document.createElement("a");
+  emailLink.href = "mailto:aldortega65@gmail.com";
+  emailLink.textContent = "aldortega65@gmail.com";
 
-  const button = document.createElement("button");
-  button.type = "submit";
-  button.textContent = "Send";
+  links.append(linkedInLink, emailLink);
+  message.append(note, links);
 
-  form.append(inputName, inputEmail, inputCompany, message, button);
-  wrap.append(photo, form);
+  wrap.append(photo, message);
   section.appendChild(wrap);
 
   return section;
