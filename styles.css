@@ -340,9 +340,19 @@ textarea {
   overflow: hidden;
 }
 
-.carousel img {
+.carousel-media {
   width: 100%;
   height: 100%;
+}
+
+.carousel-media img,
+.carousel-media iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.carousel-media img {
   object-fit: contain;
 }
 
@@ -436,7 +446,8 @@ textarea {
   background: #f6f4ee;
 }
 
-.modal .carousel img {
+.modal .carousel img,
+.modal .carousel iframe {
   object-fit: contain;
   object-position: center;
 }
@@ -490,6 +501,7 @@ textarea {
   font-family: "Consolas", "Courier New", monospace;
   font-size: 0.9em;
 }
+
 
 .contact-wrap {
   display: grid;

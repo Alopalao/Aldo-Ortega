@@ -91,18 +91,19 @@ const projects = [
     title: "My own website",
     shortDescription: "A simple personal website to show my projects and experience as Software Developer engineer.",
     longDescription: `
-      ## Overview\n
-      This is my personal portfolio website, built to showcase projects and experience.\n
-      \n
-      ### Highlights\n
-      - Responsive layout for desktop and mobile\n
-      - Expandable project modal with image carousel\n
-      - Clean section-based architecture in plain JavaScript\n
-      \n
-      ### Stack\n
-      - HTML\n
-      - CSS\n
-      - JavaScript\n
+      ## Overview
+      This is my personal portfolio website, built to showcase projects and experience.
+      Yes, it was built with AI but it was a nightmare to debug when making changes to the visuals 🫠.
+
+      ### Highlights
+      - Responsive layout for desktop and mobile
+      - Expandable project modal with image carousel
+      - Clean section-based architecture in plain JavaScript
+
+      ### Stack
+      - HTML
+      - CSS
+      - JavaScript
     `,
     images: ["./imgs/website_project.png"],
     href: "https://github.com/Alopalao/Aldo-Ortega.git",
@@ -110,17 +111,35 @@ const projects = [
   {
     title: "Moving Pieces Puzzle Game",
     shortDescription: "A puzzle game where players move pieces to solve challenges.",
-    longDescription:
-      "Expanded view for Moving Pieces Puzzle Game. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/puzzle_project/burguer_puzzle.gif", "./imgs/puzzle_project/turtle_puzzle.png", "./imgs/puzzle_project/turtle2_puzzle.png"],
-    href: "#",
+    longDescription: `
+      ## Overview
+      This is an **8-Puzzle Game** implementation to be both played manually by the user or solved by an automated computer solver. It focuses on efficient pathfinding through a decision tree to transition a shuffled grid into a solved state.
+
+      ### Highlights
+      - **Heuristic-Based Solver**: Implements the A* Algorithm so the "Computer" can solve the puzzle with a minimum number of moves.
+      - **Image Processing**: Dynamically slices any image into playable puzzle tiles using the Pillow library.
+
+      ### Stack
+      - **Python**: Core logic and algorithm development.
+      - **Tkinter**: Python library for the graphical user interface.
+      - **Pillow (PIL)**: Python library used for image loading and tile manipulation.
+    `,
+    images: [
+      "./imgs/puzzle_project/burguer_puzzle.gif",
+      "./imgs/puzzle_project/turtle_puzzle.png",
+      "./imgs/puzzle_project/turtle2_puzzle.png"
+    ],
+    href: "https://github.com/Alopalao/Moving-pieces-puzzle.git",
   },
   {
-    title: "Random Project 3",
-    shortDescription: "Description of generic project here.",
+    title: "ContractLens Project",
+    shortDescription: "A project to analyze user contracts from services like Netflix, Amazon, Youtube. This project was planned and deployed at a hackathon.",
     longDescription:
-      "Expanded view for Random Project 3. Add architecture notes, stack decisions, and outcomes here.",
-    images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
+      "Expanded view for ContractLens Project. Add architecture notes, stack decisions, and outcomes here.",
+    images: [
+      "./imgs/contractlense_project.png",
+    ],
+    videoURLs: ["https://youtu.be/VFeHTGgtuq0"],
     href: "#",
   },
   {
@@ -154,12 +173,12 @@ const conferences = [
     title: "PyCon 2026",
     shortDescription: "Wonderful conference of the Python community.",
     longDescription: `
-      ## PyCon 2026\n
-      A great event focused on community, learning, and sharing ideas.\n
-      \n
-      ### What I enjoyed\n
-      - Talks from experienced Python maintainers\n
-      - Practical sessions around tooling and best practices\n
+      ## PyCon 2026
+      A great event focused on community, learning, and sharing ideas.
+
+      ### What I enjoyed
+      - Talks from experienced Python maintainers
+      - Practical sessions around tooling and best practices
       - Networking with developers from different backgrounds
     `,
     images: ["./imgs/pycon/speakers2_pycon.jpg", "./imgs/pycon/speakers_pycon.jpg", "./imgs/pycon/map_pycon.jpg", "./imgs/pycon/setup_pycon.jpg", ]

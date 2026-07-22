@@ -10,6 +10,7 @@ export function createGallerySection(config) {
           shortDescription: "This section will be filled soon.",
           longDescription: "More details will be added once content is ready.",
           images: ["./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg", "./imgs/a_turtle.jpeg"],
+          videoURLs: [],
           href: "#",
         },
       ];
@@ -24,7 +25,7 @@ export function createGallerySection(config) {
     const card = document.createElement("article");
     card.className = "gallery-card";
 
-    const carousel = createCarousel(item.images, 180);
+    const carousel = createCarousel(getCarouselMedia(item), 180);
 
     const content = document.createElement("div");
     content.className = "card-content";
@@ -55,10 +56,6 @@ function createCarousel(images, height) {
   wrap.className = "carousel";
   wrap.style.height = `${height}px`;
 
-  const image = document.createElement("img");
-  image.src = images[0];
-  image.alt = "Project preview";
-
   const left = document.createElement("button");
   left.className = "carousel-btn left";
   left.type = "button";
@@ -70,9 +67,18 @@ function createCarousel(images, height) {
   right.textContent = ">";
 
   let index = 0;
+  let currentContent = null;
 
   const update = () => {
-    image.src = images[index];
+    const media = images[index];
+    const nextContent = createCarouselMediaElement(media);
+
+    if (currentContent) {
+      currentContent.remove();
+    }
+
+    currentContent = nextContent;
+    wrap.insertBefore(currentContent, left);
   };
 
   left.addEventListener("click", (event) => {
@@ -87,8 +93,51 @@ function createCarousel(images, height) {
     update();
   });
 
-  wrap.append(image, left, right);
+  wrap.append(left, right);
+  update();
   return { wrap, update };
+}
+
+/** Returns carousel media with videos first, then images. */
+function getCarouselMedia(item) {
+  const videos = Array.isArray(item.videoURLs)
+    ? item.videoURLs.map((url) => ({ type: "video", src: url }))
+    : [];
+
+  const images = Array.isArray(item.images)
+    ? item.images.map((src) => ({ type: "image", src }))
+    : [];
+
+  const media = [...videos, ...images];
+
+  if (!media.length) {
+    media.push({ type: "image", src: "./imgs/a_turtle.jpeg" });
+  }
+
+  return media;
+}
+
+/** Creates a carousel slide element for either an image or a YouTube video. */
+function createCarouselMediaElement(media) {
+  const slide = document.createElement("div");
+  slide.className = "carousel-media";
+
+  if (media.type === "video") {
+    const iframe = document.createElement("iframe");
+    iframe.src = toYoutubeEmbedUrl(media.src);
+    iframe.title = "YouTube video";
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    slide.appendChild(iframe);
+    return slide;
+  }
+
+  const image = document.createElement("img");
+  image.src = media.src;
+  image.alt = "Gallery preview";
+  slide.appendChild(image);
+  return slide;
 }
 
 /** Creates the shared fullscreen overlay used by the modal. */
@@ -128,7 +177,7 @@ function showModal(overlay, item, linkLabel) {
   const title = document.createElement("h3");
   title.textContent = item.title;
 
-  const carousel = createCarousel(item.images, getModalCarouselHeight());
+  const carousel = createCarousel(getCarouselMedia(item), getModalCarouselHeight());
 
   const details = document.createElement("div");
   details.className = "modal-rich-text";
@@ -148,6 +197,36 @@ function showModal(overlay, item, linkLabel) {
 
   modal.append(close, body);
   overlay.appendChild(modal);
+}
+
+/** Converts common YouTube URL forms into an embeddable URL. */
+function toYoutubeEmbedUrl(url) {
+  if (!url) {
+    return "";
+  }
+
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname.includes("youtu.be")) {
+      const videoId = parsed.pathname.replace("/", "");
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+    }
+
+    if (parsed.hostname.includes("youtube.com")) {
+      const videoId = parsed.searchParams.get("v");
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+
+      if (parsed.pathname.startsWith("/embed/")) {
+        return url;
+      }
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
 }
 
 /** Renders a small subset of Markdown into safe HTML for modal details. */
